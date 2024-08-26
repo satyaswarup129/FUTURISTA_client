@@ -14,7 +14,7 @@
 //     setShow(!show);
 //   };
   
-//   const isDashboard = useLocation("http://localhost:5173/dashboard");
+//   const isDashboard = useLocation("https://futurista-client.vercel.app//dashboard");
   
 //   const { mode, setMode, isAuthenticated, user, setIsAuthenticated } = useContext(Context);
   
@@ -133,7 +133,7 @@ const Navbar = () => {
     setShow(!show);
   };
 
-  const location = useLocation();
+  const location = useLocation("https://futurista-client.vercel.app/dashboard");
   const { mode, setMode, isAuthenticated, user, setIsAuthenticated } = useContext(Context);
 
   const navigateTo = useNavigate();
