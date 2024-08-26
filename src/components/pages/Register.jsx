@@ -41,7 +41,7 @@ const Register = () => {
 
     try {
       const { data } = await axios.post(
-        "http://localhost:5000/api/v1/user/register",
+        "https://futurista-server.onrender.com/api/v1/user/register",
         formData,
         {
           withCredentials: true,

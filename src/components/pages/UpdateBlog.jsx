@@ -29,7 +29,7 @@ const UpdateBlog = () => {
     const fetchBlog = async () => {
       try {
         const { data } = await axios.get(
-          `http://localhost:5000/api/v1/blog/singleblog/${id}`,
+          `https://futurista-server.onrender.com/api/v1/blog/singleblog/${id}`,
           { withCredentials: true }
         );
         setTitle(data.blog.title);
@@ -105,7 +105,7 @@ const UpdateBlog = () => {
 
     try {
       const { data } = await axios.put(
-        `http://localhost:5000/api/v1/blog/update/${id}`,
+        `https://futurista-server.onrender.com/api/v1/blog/update/${id}`,
         updatedBlog,
         { withCredentials: true }
       );

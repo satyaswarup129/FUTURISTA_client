@@ -17,7 +17,7 @@ const SideBar = ({ setComponent }) => {
     e.preventDefault();
     try {
       const { data } = await axios.get(
-        "http://localhost:5000/api/v1/user/logout",
+        "https://futurista-server.onrender.com/api/v1/user/logout",
         { withCredentials: true }
       );
       setIsAuthenticated(false);

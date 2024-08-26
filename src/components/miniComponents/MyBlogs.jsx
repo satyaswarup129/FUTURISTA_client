@@ -10,7 +10,7 @@ const MyBlogs = () => {
   useEffect(() => {
     const fetchMyBlogs = async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/api/v1/blog/myblogs",
+        "https://futurista-server.onrender.com/api/v1/blog/myblogs",
         { withCredentials: true }
       );
       setMyBlogs(data.blogs);
@@ -20,7 +20,7 @@ const MyBlogs = () => {
 
   const deleteBlogHandler = async (id) => {
     await axios
-      .delete(`http://localhost:5000/api/v1/blog/delete/${id}`, {
+      .delete(`https://futurista-server.onrender.com/api/v1/blog/delete/${id}`, {
         withCredentials: true,
       })
       .then((res) => {

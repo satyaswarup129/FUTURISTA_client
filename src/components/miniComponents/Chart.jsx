@@ -29,7 +29,7 @@ const Chart = () => {
   useEffect(() => {
     const fetchMyBlogs = async () => {
       const { data } = await axios.get(
-        "http://localhost:5000/api/v1/blog/myblogs",
+        "https://futurista-server.onrender.com/api/v1/blog/myblogs",
         { withCredentials: true }
       );
       setMyBlogs(data.blogs);
