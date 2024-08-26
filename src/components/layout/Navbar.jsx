@@ -133,7 +133,7 @@ const Navbar = () => {
     setShow(!show);
   };
 
-  const location = useLocation("https://futurista-client.vercel.app/dashboard");
+  const location = useLocation();
   const { mode, setMode, isAuthenticated, user, setIsAuthenticated } = useContext(Context);
 
   const navigateTo = useNavigate();
