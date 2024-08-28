@@ -1,6 +1,7 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./App.css";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Cookies from "js-cookie";
 import Home from "../src/components/pages/Home";
 import About from "../src/components/pages/About";
 import Blogs from "../src/components/pages/Blogs";
@@ -17,6 +18,7 @@ import axios from "axios";
 import UpdateBlog from "./components/pages/UpdateBlog";
 
 const App = () => {
+  const [token, setToken] = useState("");
   const { setUser, isAuthenticated, setIsAuthenticated, user, setBlogs } =
     useContext(Context);
   useEffect(() => {
@@ -25,6 +27,10 @@ const App = () => {
         const { data } = await axios.get(
           "https://futurista-server.onrender.com/api/v1/user/myprofile",
           {
+            // headers: {
+            //   "Content-Type": "application/json",
+            //   Cookie: `token=${token}`, // Manually send the token as a cookie
+            // },
             withCredentials: true,
           }
         );
@@ -47,9 +53,15 @@ const App = () => {
         setBlogs([]);
       }
     };
-    fetchUser();
+    if(!token)setToken(Cookies.get("token")); // Get the token from cookies
+console.log("token " + token);
+
+    if (token) {
+      console.log("heigala");
+      fetchUser(); // Call fetchUser only if token is present
+    }
     fetchBlogs();
-  }, []);
+  }, [token]);
   return (
     <>
       <BrowserRouter>

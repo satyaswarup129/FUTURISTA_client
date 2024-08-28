@@ -14,7 +14,7 @@
 //     setShow(!show);
 //   };
   
-//   const isDashboard = useLocation("https://futurista-client.vercel.app//dashboard");
+//   const isDashboard = useLocation("https://futurista-client.vercel.app/dashboard");
   
 //   const { mode, setMode, isAuthenticated, user, setIsAuthenticated } = useContext(Context);
   
@@ -117,6 +117,9 @@
 // };
 
 // export default Navbar;
+
+
+
 import React, { useState, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { RxHamburgerMenu } from "react-icons/rx";
@@ -133,7 +136,7 @@ const Navbar = () => {
     setShow(!show);
   };
 
-  const location = useLocation();
+  const location = useLocation("https://futurista-client.vercel.app/dashboard");
   const { mode, setMode, isAuthenticated, user, setIsAuthenticated } = useContext(Context);
 
   const navigateTo = useNavigate();
@@ -215,7 +218,7 @@ const Navbar = () => {
             ) : (
               ""
             )}
-            {!isAuthenticated ? (
+            {isAuthenticated === false ? (
               <Link to={"/login"} onClick={handleNavbar} className="login-btn">
                 LOGIN
               </Link>
