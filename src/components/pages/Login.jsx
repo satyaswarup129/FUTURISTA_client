@@ -3,13 +3,12 @@ import { Link, Navigate, useNavigate } from "react-router-dom";
 import { Context } from "../../main";
 import axios from "axios";
 import toast from "react-hot-toast";
-import Cookies from 'js-cookie';
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [role, setRole] = useState("");
-  const { mode, isAuthenticated, setIsAuthenticated, setUser } = useContext(Context);
+  const { mode, isAuthenticated } = useContext(Context);
   const navigateTo = useNavigate();
 
   const handleLogin = async (e) => {
@@ -24,15 +23,7 @@ const Login = () => {
         }
       )
       .then((res) => {
-        console.log(res);
-        // if (res.data.token) {
-        //   Cookies.set('token', res.data.token, { expires: 7, secure: true, sameSite: 'strict' });
-        //   console.log("Token set in cookie: " + res.data.token); // Log the token being set
-        // } else {
-        //   console.log("No token received from backend");
-        // }
-        setIsAuthenticated(true);
-        setUser(res.data.user);
+        // setUser(res.data.user);
         toast.success(res.data.message);
         setEmail("");
         setPassword("");

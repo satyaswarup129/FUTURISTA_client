@@ -27,10 +27,6 @@ const App = () => {
         const { data } = await axios.get(
           "https://futurista-server.onrender.com/api/v1/user/myprofile",
           {
-            // headers: {
-            //   "Content-Type": "application/json",
-            //   Cookie: `token=${token}`, // Manually send the token as a cookie
-            // },
             withCredentials: true,
           }
         );
@@ -53,15 +49,17 @@ const App = () => {
         setBlogs([]);
       }
     };
-    if(!token)setToken(Cookies.get("token")); // Get the token from cookies
-console.log("token " + token);
-
-    if (token) {
-      console.log("heigala");
-      fetchUser(); // Call fetchUser only if token is present
-    }
+    fetchUser();
     fetchBlogs();
-  }, [token]);
+  }, []);
+//     if(!token)setToken(Cookies.get("token")); // Get the token from cookies
+// console.log("token " + token);
+
+//     if (token) {
+//       fetchUser(); // Call fetchUser only if token is present
+//     }
+//     fetchBlogs();
+//   }, [token]);
   return (
     <>
       <BrowserRouter>

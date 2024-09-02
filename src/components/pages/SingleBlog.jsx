@@ -22,9 +22,9 @@ const SingleBlog = () => {
     };
     getSingleBlog();
   }, []);
-  // if (!isAuthenticated) {
-  //   return <Navigate to={"/"} />;
-  // }
+  if (!isAuthenticated) {
+    return <Navigate to={"/"} />;
+  }
   return (
     <article
       className={mode === "dark" ? "dark-bg singleBlog" : "light-bg singleBlog"}
