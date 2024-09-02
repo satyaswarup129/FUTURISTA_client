@@ -18,7 +18,6 @@ import axios from "axios";
 import UpdateBlog from "./components/pages/UpdateBlog";
 
 const App = () => {
-  const [token, setToken] = useState("");
   const { setUser, isAuthenticated, setIsAuthenticated, user, setBlogs } =
     useContext(Context);
   useEffect(() => {
@@ -38,6 +37,9 @@ const App = () => {
         setUser({});
       }
     };
+    fetchUser();
+  }, [setUser, setIsAuthenticated]);
+  useEffect(() => {
     const fetchBlogs = async () => {
       try {
         const { data } = await axios.get(
@@ -46,12 +48,13 @@ const App = () => {
         );
         setBlogs(data.allBlogs);
       } catch (error) {
+        console.log(error);
         setBlogs([]);
       }
     };
-    fetchUser();
+
     fetchBlogs();
-  }, []);
+  }, [setBlogs]);
 //     if(!token)setToken(Cookies.get("token")); // Get the token from cookies
 // console.log("token " + token);
 
