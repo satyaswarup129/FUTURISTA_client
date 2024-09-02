@@ -55,14 +55,14 @@ const App = () => {
 
     fetchBlogs();
   }, [setBlogs]);
-//     if(!token)setToken(Cookies.get("token")); // Get the token from cookies
-// console.log("token " + token);
+  //     if(!token)setToken(Cookies.get("token")); // Get the token from cookies
+  // console.log("token " + token);
 
-//     if (token) {
-//       fetchUser(); // Call fetchUser only if token is present
-//     }
-//     fetchBlogs();
-//   }, [token]);
+  //     if (token) {
+  //       fetchUser(); // Call fetchUser only if token is present
+  //     }
+  //     fetchBlogs();
+  //   }, [token]);
   return (
     <>
       <BrowserRouter>
