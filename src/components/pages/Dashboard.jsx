@@ -9,16 +9,16 @@ import { Navigate } from "react-router-dom";
 const Dashboard = () => {
   const [component, setComponent] = useState("MyBlogs");
   const { mode, isAuthenticated } = useContext(Context);
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    if (isAuthenticated !== null) {
-      setLoading(false);
-    }
-  }, [isAuthenticated]);
-  if (loading) {
-    return <div>Loading...</div>; // or a spinner component
-  }
+  // useEffect(() => {
+  //   if (isAuthenticated !== null) {
+  //     setLoading(false);
+  //   }
+  // }, [isAuthenticated]);
+  // if (loading) {
+  //   return <div>Loading...</div>; // or a spinner component
+  // }
   if (!isAuthenticated) {
     return <Navigate to={"/"} />;
   }
